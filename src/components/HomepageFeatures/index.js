@@ -4,32 +4,30 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: '用户管理',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        采用 <code>nis</code> 作为集群平台统一的用户管理.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: '调度系统',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        采用 <code>slurm</code> 调度, 预配置作业调度脚本.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: '集群管理',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        采用 <code>xcat</code> 管理集群, 包括批命令, 批拷贝, 远程开关机等.
+        通过 <code>environment-modules</code> 管理环境变量.
       </>
     ),
   },

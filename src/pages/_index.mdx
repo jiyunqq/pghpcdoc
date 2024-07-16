@@ -1,0 +1,86 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Highlight from '@site/src/components/Highlight';
+import Admonition from '@theme/Admonition';
+
+### 终端登录
+
+1. ssh 终端登录管理登录节点, 入口ip: ``172.16.8.200``, 端口号: ``2277``
+1. ``vim job.slurm`` 编辑修改作业脚本
+1. ``sbatch job.slurm`` 提交作业
+
+### 启动 gui 程序
+
+1. 下载安装 ``MobaXterm`` 软件, 登录后, 直接运行 gui 程序即可.
+
+### 作业提交
+
+<Tabs>
+  <TabItem value="普通作业" label="普通作业" default>
+
+      ```bash
+
+      cat job.slurm
+
+      #!/bin/bash
+      #SBATCH --job-name=test
+      #SBATCH --output=test_%j.out
+      #SBATCH --error=test_%j.err
+      #SBATCH --partition compute
+      #SBATCH --nodes=1
+      #SBATCH --tasks-per-node=2
+      #SBATCH --cpus-per-task=1
+      python job.py
+
+      sbatch job.slurm
+
+      ```
+  </TabItem>
+
+  <TabItem value="mpi 作业" label="mpi 作业">
+
+      ```bash
+
+      cat vasp.slurm
+
+      #!/bin/bash
+      #SBATCH -o job.%j.out
+      #SBATCH --partition=compute
+      #SBATCH -J myFirstMPIJob
+      #SBATCH --nodes=2
+      #SBATCH --ntasks-per-node=32
+
+      # 导入MPI运行环境
+      module load intel/2017.1
+
+      # 导入MPI应用程序
+      module load vasp/5.4.4-intel-2017.1
+
+      # 生成 machinefile
+      srun hostname -s | sort -n >slurm.hosts
+
+      # 执行MPI并行计算程序
+      mpirun -n 64 -machinefile slurm.hosts vasp_std > log
+
+      sbatch vasp.slurm
+      ```
+  </TabItem>
+
+  <TabItem value="交互式作业" label="交互式作业">
+
+      ```bash
+      srun --time=1:00:00 --nodes=1 --ntasks=32 --partition=gpu --pty bash
+      ```
+  </TabItem>
+</Tabs>
+
+<Admonition type="tip" icon="💡" title="提示 tip">
+- **禁止使用 ``yum update`` 或 ``yum upgrade`` 升级系统, 如果有重要安装漏洞, 确实需要升级, 请联系售后**
+- *尽量不要使用 root 超级用户*, 除非是添加用户，维护系统等必须要使用 root 权限的操作.
+  具备一定的 linux 系统管理经验的用户才可以使用 root 进行维护工作.
+</Admonition>
+
+<Admonition type="danger" icon="🔥" title="注意 Caution">
+- 请不要直接在管理登录节点进行任务操作!!!
+- 请不要直接在管理登录节点进行 TB 级别数据拷贝!!!
+</Admonition>

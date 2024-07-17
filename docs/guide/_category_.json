@@ -1,6 +1,6 @@
 {
   "label": "用户手册",
-  "position": 3,
+  "position": 2,
   "link": {
     "type": "generated-index",
     "description": "分为用户登录, 环境设置, 调度系统等"

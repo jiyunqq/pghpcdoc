@@ -1,18 +1,21 @@
+---
+title: 磁盘配额
+sidebar_position: 2
+---
 ### storage 关于存储
 
-- **存储用量查询**
+#### gpfs 存储用量查询
 
-```shell 
-# 注意 ` 符号不是单引号 
-
-export PATH=$PATH:/usr/lpp/mmfs/bin mmlsquota -g `id -g` --block-size auto 
-
-```
-
-- **集群存储使用情况查询**
-
-```
-export PATH=$PATH:/usr/lpp/mmfs/bin
+```shell:no-line-numbers
 mmlsquota --block-size auto
+```
+
+#### xfs 存储用量查询
+
+```shell:no-line-numbers
+# /share 要改成真实的存储的挂载点
+
+xfs_quota -c "quota -uh $USER" /share
+
 
 ```

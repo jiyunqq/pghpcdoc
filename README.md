@@ -37,5 +37,24 @@ git push --force origin master    # 强制推送覆盖远程分支
 git status                        # 检查推送是否成功
 ```
 
-### Deployment
+#### 仓库常用操作
 
+```bash
+git status
+git add .
+git commit -m "pghpc 文档"
+git push
+```
+
+### 导出 pdf
+
+```bash
+export PATH=/cygdrive/e/tmp/2024/tmp/prince-15.3-win64/bin:$PATH
+pnpx docusaurus-prince-pdf -u http://localhost:3000/doc
+
+pnpm config set registry https://registry.npm.taobao.org/
+pnpm config get registry
+pnpm config set registry https://registry.npmjs.org/
+NODE_OPTIONS=--no-warnings npx docusaurus-prince-pdf -u http://localhost:3000/doc/docs
+NODE_OPTIONS=--no-warnings npx docusaurus-prince-pdf -u http://localhost:3000/doc/docs --include-index pdf/localhost-doc-docs.txt
+```

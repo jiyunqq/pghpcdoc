@@ -9,9 +9,9 @@ title: 首页
 
 您可以通过下面目录链接，快速查看不同页面内容
 
-可用队列可在 <Highlight color="#1877F2">平台首页</Highlight>
+<!-- 可用队列可在 <Highlight color="#1877F2">平台首页</Highlight>
 
-<Highlight color="#25c2a0">编写</Highlight>作业脚本, 如下示例
+<Highlight color="#25c2a0">编写</Highlight>作业脚本, 如下示例 -->
 
 <!-- ### 用户手册
 

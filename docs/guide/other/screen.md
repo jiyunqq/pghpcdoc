@@ -1,5 +1,6 @@
 ---
 title: screen 解决连接中断问题
+sidebar_position: 3
 ---
 
 ### Screen

@@ -58,3 +58,14 @@ pnpm config set registry https://registry.npmjs.org/
 NODE_OPTIONS=--no-warnings npx docusaurus-prince-pdf -u http://localhost:3000/doc/docs
 NODE_OPTIONS=--no-warnings npx docusaurus-prince-pdf -u http://localhost:3000/doc/docs --include-index pdf/localhost-doc-docs.txt
 ```
+
+### 配置到 github pages
+
+```bash
+cd build
+git init
+git add .
+git commit -m "添加 pghpcdoc 到 GitHub Pages 页面"
+git remote add origin git@github.com:jiyunqq/pghpcdoc.git
+git push -f origin master
+```

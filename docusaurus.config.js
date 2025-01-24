@@ -17,7 +17,7 @@ const config = {
   url: 'https://your-docusaurus-site.example.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/pghpcdoc',
+  baseUrl: '/doc',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -141,7 +141,7 @@ const config = {
         //     ],
         //   },
         // ],
-        copyright: `Copyright © ${new Date().getFullYear()} hpc 高性能计算. 北京道正世纪有限公司.`,
+        copyright: `Copyright © ${new Date().getFullYear()} pghpc 高性能计算.`,
       },
       prism: {
         additionalLanguages: [
@@ -166,7 +166,7 @@ const config = {
         ({
           hashed: true,
           language: ["en", "zh"],
-          docsRouteBasePath: '/doc',
+          // docsRouteBasePath: '/hpcdoc',
         }),
       ]
     ]

@@ -1,0 +1,36 @@
+name: Deploy Docusaurus to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master  # 在推送到 master 分支时触发
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 设置 Node.js 环境
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # 使用兼容版本
+
+      # 安装依赖
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile  # 使用 yarn 安装依赖
+
+      # 构建文档
+      - name: Build documentation
+        run: yarn build
+
+      # 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # GitHub 提供的自动部署令牌
+          publish_dir: ./build # 构建后的文件目录

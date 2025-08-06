@@ -14,9 +14,9 @@ sidebar_position: 1
 
 - 集群共享存储: nfs
 
-- 集群监控系统: ganglia
+- 集群监控系统: grafana
 
-- 操作系统: ``CentOS 7.9``
+- 操作系统: ``Rocky 8.10``
 
 - 管理节点也是登录节点
 
